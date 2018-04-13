@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -18,15 +19,15 @@ public class Home extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        GridView gridview = findViewById(R.id.hotGridView);
-        gridview.setAdapter(new ImageAdapter(this));
+        GridView gridView = findViewById(R.id.hotGridView);
+        gridView.setAdapter(new ImageAdapter(this));
 
-        /* gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 Toast.makeText(Home.this, "" + position,
                         Toast.LENGTH_SHORT).show();
             }
-        }); */
+        });
     }
 }

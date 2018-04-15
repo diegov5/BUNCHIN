@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by Diego Valdez Local on 4/5/2018.
  */
 
-public class Profile extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

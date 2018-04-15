@@ -5,4 +5,10 @@ package spazm.spazm;
  */
 
 public class PostDetails {
+    private int score;
+    public PostDetails()
+    {
+
+    }
+
 }

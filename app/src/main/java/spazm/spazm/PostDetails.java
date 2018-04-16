@@ -9,40 +9,18 @@ import java.util.Calendar;
 public class PostDetails {
     protected Calendar time;
     protected ArrayList<String> whoHasLiked;
-    protected String title;
     protected enum Type{PHOTO,VIDEO,RANT,POLL,LINK};
     protected Type type;
     String poster;
-    //protected ArrayList<SubPost> comments;
-    public PostDetails(String title_i, Type type_i, String userName)
-    {
-        Calendar time = Calendar.getInstance();//get current time
-        whoHasLiked = new ArrayList<>();
-        title = title_i;
-        type = type_i;
-        poster = userName;
-        //comments = new ArrayList<SubPost>;
-    }
-    protected String getTitle()
-    {
-        return title;
+
+    public PostDetails()
+    {//here for subclass
     }
     protected int getLikes()
     {
         return whoHasLiked.size();
     }
-    protected int getScore()
-    {
-        Calendar current= Calendar.getInstance();
-        int timeDiff = time.compareTo(current);//in mili seconds
-        timeDiff = timeDiff/3600000;//converts to hours
-        int score = (getLikes()/*+(.5*comments.size())*/)- (timeDiff*timeDiff)/8; //decays as time pass
-        return score;
-    }
-    protected void changeTitle(String title_i)
-    {
-        title = title_i;
-    }
+
     protected void unlike(String userName)
     {
         int index = whoHasLiked.lastIndexOf(userName);
@@ -69,8 +47,5 @@ public class PostDetails {
             whoHasLiked.add(userName);
         }
     }
-    /*protected void addComment(SubPost newComment)
-    {
-        comments.add(newComment);
-    }*/
+
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class HotPosts {
     protected ArrayList<TopPost> hot;
-    protected ArrayList<TopPost> allPosts;
+    protected ArrayList<TopPost> allPosts;// maybe replace this with timeline
 
     public HotPosts(ArrayList<TopPost> allPosts_i)//assuming arraylist contains all viewable posts
     {
@@ -27,7 +27,10 @@ public class HotPosts {
             hot.ensureCapacity(allPosts.size());
         findHotPosts();
     }
-
+    protected TopPost getPost(int index)
+    {
+        return hot.get(index);
+    }
     protected void findHotPosts()//i hate how i coded this but finds top 8 scores
     {
         ArrayList<TopPost> allPostCopy = (ArrayList<TopPost>)(allPosts.clone());

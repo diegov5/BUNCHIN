@@ -37,7 +37,7 @@ public class ImageAdapter extends BaseAdapter {
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(220, 220));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(2, 2, 2, 2);
+            //imageView.setPadding(2, 2, 2, 2);
         } else {
             imageView = (ImageView) convertView;
         }
@@ -46,7 +46,7 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
-    // references to our images
+    // references to our images in the gridView
     private Integer[] mThumbIds = {
             R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,

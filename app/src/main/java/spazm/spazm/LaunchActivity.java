@@ -13,6 +13,7 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
+        // Have login button send you straight to the Home activity
         Button login = (Button) findViewById(R.id.LOGIN);
         login.setOnClickListener(new View.OnClickListener() {
             @Override

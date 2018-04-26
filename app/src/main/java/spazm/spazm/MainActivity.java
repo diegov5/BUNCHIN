@@ -28,7 +28,10 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -55,14 +58,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the action bar.
-        final ActionBar actionBar = getActionBar();
+        //final ActionBar actionBar = getActionBar();
 
-        // Specify that the Home/Up button should not be enabled, since there is no hierarchical
-        // parent.
-       // actionBar.setHomeButtonEnabled(false);
-
-        // Specify that we will be displaying tabs in the action bar.
-//        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         // Set up the ViewPager, attaching the adapter and setting up a listener for when the
         // user swipes between sections.
@@ -78,16 +75,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             }
         });
 
-        // For each of the sections in the app, add a tab to the action bar.
-        /*for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
-            // Create a tab with text corresponding to the page title defined by the adapter.
-            // Also specify this Activity object, which implements the TabListener interface, as the
-            // listener for when this tab is selected.
-            actionBar.addTab(
-                    actionBar.newTab()
-                            .setText(mAppSectionsPagerAdapter.getPageTitle(i))
-                            .setTabListener(this));
-        }*/
+       /* GridView gridView = findViewById(R.id.hotGridView);
+        gridView.setAdapter(new ImageAdapter(this));
+
+        // Give each picture in gridView button functionality
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(MainActivity.this, "" + position,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });*/
     }
 
     @Override
@@ -153,8 +151,20 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
 
+           /* GridView gridView = (GridView) rootView.findViewById(R.id.hotGridView);
+            gridView.setAdapter(new ImageAdapter(this));
+
+            // Give each picture in gridView button functionality
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v,
+                                        int position, long id) {
+                    Toast.makeText(HomeActivity.this, "" + position,
+                            Toast.LENGTH_SHORT).show();
+                }
+            }); */
+
             // Demonstration of a collection-browsing activity.
-            rootView.findViewById(R.id.demo_collection_button)
+            /*rootView.findViewById(R.id.demo_collection_button)
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -179,6 +189,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             startActivity(externalActivityIntent);
                         }
                     });
+            */
 
             return rootView;
         }

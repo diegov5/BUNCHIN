@@ -59,10 +59,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         // Specify that the Home/Up button should not be enabled, since there is no hierarchical
         // parent.
-        actionBar.setHomeButtonEnabled(false);
+       // actionBar.setHomeButtonEnabled(false);
 
         // Specify that we will be displaying tabs in the action bar.
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+//        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         // Set up the ViewPager, attaching the adapter and setting up a listener for when the
         // user swipes between sections.
@@ -74,12 +74,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 // When swiping between different app sections, select the corresponding tab.
                 // We can also use ActionBar.Tab#select() to do this if we have a reference to the
                 // Tab.
-                actionBar.setSelectedNavigationItem(position);
+                // actionBar.setSelectedNavigationItem(position);
             }
         });
 
         // For each of the sections in the app, add a tab to the action bar.
-        for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
+        /*for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
             // Create a tab with text corresponding to the page title defined by the adapter.
             // Also specify this Activity object, which implements the TabListener interface, as the
             // listener for when this tab is selected.
@@ -87,7 +87,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     actionBar.newTab()
                             .setText(mAppSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
-        }
+        }*/
     }
 
     @Override

@@ -6,14 +6,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-/**
- * Created by Diego Valdez Local on 4/12/2018.
- */
-
-public class ImageAdapter extends BaseAdapter {
+public class TimelineAdapter extends BaseAdapter {
     private Context mContext;
 
-    public ImageAdapter(Context c) {
+    public TimelineAdapter(Context c) {
         mContext = c;
     }
 

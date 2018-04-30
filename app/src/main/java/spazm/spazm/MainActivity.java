@@ -72,7 +72,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         });
 
        /* GridView gridView = findViewById(R.id.hotGridView);
-        gridView.setAdapter(new ImageAdapter(this));
+        gridView.setAdapter(new HotPostsAdapter(this));
 
         // Give each picture in gridView button functionality
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

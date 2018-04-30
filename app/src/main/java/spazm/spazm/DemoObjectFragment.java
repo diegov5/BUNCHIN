@@ -26,7 +26,7 @@ public class DemoObjectFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         GridView gridView = (GridView) rootView.findViewById(R.id.hotGridView);
-        gridView.setAdapter(new ImageAdapter(getActivity()));
+        gridView.setAdapter(new HotPostsAdapter(getActivity()));
 
         // Give each picture in gridView button functionality
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

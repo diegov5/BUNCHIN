@@ -1,5 +1,6 @@
 package spazm.spazm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,19 +25,19 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         GridView hotView = (GridView) rootView.findViewById(R.id.hotGridView);
-        hotView.setAdapter(new ImageAdapter(getActivity()));
+        hotView.setAdapter(new HotPostsAdapter(getActivity()));
 
         // Give each picture in gridView button functionality
         hotView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getActivity(), "" + position,
-                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ViewPostActivity.class);
+                startActivity(intent);
             }
         });
 
         GridView timelineView = (GridView) rootView.findViewById(R.id.timeline);
-        timelineView.setAdapter(new ImageAdapter(getActivity()));
+        timelineView.setAdapter(new TimelineAdapter(getActivity()));
 
         // Give each picture in gridView button functionality
         timelineView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -49,44 +50,3 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 }
-
-           /* GridView gridView = (GridView) rootView.findViewById(R.id.hotGridView);
-            gridView.setAdapter(new ImageAdapter(this));
-
-            // Give each picture in gridView button functionality
-            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                public void onItemClick(AdapterView<?> parent, View v,
-                                        int position, long id) {
-                    Toast.makeText(HomeActivity.this, "" + position,
-                            Toast.LENGTH_SHORT).show();
-                }
-            }); */
-
-        // Demonstration of a collection-browsing activity.
-            /*rootView.findViewById(R.id.demo_collection_button)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(getActivity(), CollectionDemoActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-
-            // Demonstration of navigating to external activities.
-            rootView.findViewById(R.id.demo_external_activity)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            // Create an intent that asks the user to pick a photo, but using
-                            // FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET, ensures that relaunching
-                            // the application from the device home screen does not return
-                            // to the external activity.
-                            Intent externalActivityIntent = new Intent(Intent.ACTION_PICK);
-                            externalActivityIntent.setType("image/*");
-                            externalActivityIntent.addFlags(
-                                    Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-                            startActivity(externalActivityIntent);
-                        }
-                    });
-
-    }*/

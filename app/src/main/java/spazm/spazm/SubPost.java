@@ -10,6 +10,9 @@ import java.util.Calendar;
 public class SubPost extends PostDetails {
     protected PostDetails topPost;
 
+    public SubPost()
+    {//for subclass's
+    }
     public SubPost (Type type_i, String userName,PostDetails topPost_i)
     {
         Calendar time = Calendar.getInstance();//get current time

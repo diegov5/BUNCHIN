@@ -10,6 +10,10 @@ import java.util.Calendar;
 public class TopPost extends PostDetails {
     protected ArrayList<SubPost> comments;
     protected String title;
+    public TopPost()
+    {//here for subclass
+    }
+    //shouldnt be called maybe get rid of \/
     public TopPost(String title_i, Type type_i, String userName)
     {
         Calendar time = Calendar.getInstance();//get current time

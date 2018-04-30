@@ -17,8 +17,21 @@ public class TimeLine
     {
         return timeLine.get(index);
     }
-    protected void addPost(TopPost newPost)//not sure if this should just add to end or if time should be checked
+    protected void addPost(Picture newPost)//not sure if this should just add to end or if time should be checked
     {
         timeLine.add(newPost);
     }
+    protected void addPost(Rant newPost)//not sure if this should just add to end or if time should be checked
+    {
+        timeLine.add(newPost);
+    }
+    protected void removePost(int index)
+    {
+        timeLine.remove(index);
+    }
+    protected int size()
+    {
+        return timeLine.size();
+    }
+
 }

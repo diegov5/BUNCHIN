@@ -18,7 +18,7 @@ public class LaunchActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Intent = new Intent(view.getContext(), HomeActivity.class);
+                Intent Intent = new Intent(view.getContext(), MainActivity.class);
                 view.getContext().startActivity(Intent);}
         });
 
@@ -30,6 +30,7 @@ public class LaunchActivity extends AppCompatActivity {
                 view.getContext().startActivity(Intent);}
         });
 
+        /*
         Button test = (Button) findViewById(R.id.TEST);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +38,6 @@ public class LaunchActivity extends AppCompatActivity {
                 Intent Intent = new Intent(view.getContext(), MainActivity.class);
                 view.getContext().startActivity(Intent);}
         });
-
+        */
     }
-
-    // test
 }

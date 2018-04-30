@@ -1,21 +1,24 @@
 package spazm.spazm;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ProfileFragment extends Fragment {
+public class NewPostFragment extends Fragment {
 
-    public ProfileFragment() {}
+    public NewPostFragment() {
+    }
+
+    ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        getActivity().setTitle("Profile");
-        View rootView = inflater.inflate(R.layout.fragment_activity, container, false);
+        getActivity().setTitle("Timeline");
+        View rootView = inflater.inflate(R.layout.fragment_newpost, container, false);
 
         return rootView;
     }

@@ -2,13 +2,13 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="spazm.spazm.LaunchActivity"
-    android:weightSum="1"
     android:background="@android:color/holo_purple"
-    android:id="@+id/linearLayout2">
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="spazm.spazm.LaunchActivity">
 
     <EditText
         android:id="@+id/editText"
@@ -31,12 +31,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@android:color/white"
         android:contentDescription="profilePic"
+        android:src="@drawable/sample_0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
         android:id="@+id/name"
@@ -95,51 +96,62 @@
 
     <ImageButton
         android:id="@+id/tagged"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="103dp"
+        android:layout_marginLeft="36dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
+        android:background="@android:color/white"
         android:contentDescription="tagged"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sample_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toBottomOf="@+id/score" />
 
     <ImageButton
         android:id="@+id/posts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="103dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:background="@android:color/white"
         android:contentDescription="posts"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sample_2"
         app:layout_constraintEnd_toStartOf="@+id/groups"
         app:layout_constraintStart_toEndOf="@+id/tagged"
-        app:layout_constraintTop_toBottomOf="@+id/score"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toBottomOf="@+id/score" />
 
     <ImageButton
         android:id="@+id/groups"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="103dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:layout_marginTop="24dp"
+        android:background="@android:color/white"
         android:contentDescription="groups"
+        android:cropToPadding="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sample_3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toBottomOf="@+id/score" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="64dp"
         android:fontFamily="@font/indie_flower"
         android:text="Tagged"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tagged" />
 
@@ -147,22 +159,32 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/indie_flower"
         android:text="Posts"
         android:textColor="@android:color/white"
         android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/posts"
-        tools:layout_editor_absoluteX="178dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/posts" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="72dp"
         android:fontFamily="@font/indie_flower"
         android:text="Groups"
         android:textColor="@android:color/white"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/groups" />
 

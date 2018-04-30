@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -24,7 +23,7 @@ public class DemoObjectFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         getActivity().setTitle("Timeline");
-        View rootView = inflater.inflate(R.layout.activity_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         GridView gridView = (GridView) rootView.findViewById(R.id.hotGridView);
         gridView.setAdapter(new ImageAdapter(getActivity()));

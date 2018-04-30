@@ -21,13 +21,25 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         getActivity().setTitle("Timeline");
-        View rootView = inflater.inflate(R.layout.activity_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        GridView gridView = (GridView) rootView.findViewById(R.id.hotGridView);
-        gridView.setAdapter(new ImageAdapter(getActivity()));
+        GridView hotView = (GridView) rootView.findViewById(R.id.hotGridView);
+        hotView.setAdapter(new ImageAdapter(getActivity()));
 
         // Give each picture in gridView button functionality
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        hotView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(getActivity(), "" + position,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        GridView timelineView = (GridView) rootView.findViewById(R.id.timeline);
+        timelineView.setAdapter(new ImageAdapter(getActivity()));
+
+        // Give each picture in gridView button functionality
+        timelineView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 Toast.makeText(getActivity(), "" + position,

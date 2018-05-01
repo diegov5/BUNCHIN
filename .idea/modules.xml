@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BUNCHIN.iml" filepath="$PROJECT_DIR$/BUNCHIN.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Spazm.iml" filepath="$PROJECT_DIR$/Spazm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../McLovin/Desktop/project/BUNCHIN/Spazm.iml" filepath="$PROJECT_DIR$/../../../McLovin/Desktop/project/BUNCHIN/Spazm.iml" />
+      <module fileurl="file://C:\Users\McLovin\Desktop\project\BUNCHIN\Spazm.iml" filepath="C:\Users\McLovin\Desktop\project\BUNCHIN\Spazm.iml" />
+      <module fileurl="file://C:\Users\McLovin\McLovin\Desktop\project\BUNCHIN\Spazm.iml" filepath="C:\Users\McLovin\McLovin\Desktop\project\BUNCHIN\Spazm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

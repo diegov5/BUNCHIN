@@ -9,8 +9,8 @@ import java.util.Calendar;
 public class PostDetails {
     protected Calendar time;
     protected ArrayList<String> whoHasLiked;
-    protected enum Type{PHOTO,VIDEO,RANT,POLL,LINK};
-    protected Type type;
+    //protected enum Type{PHOTO,VIDEO,RANT,POLL,LINK};
+    //protected Type type;
     String poster;
 
     public PostDetails()

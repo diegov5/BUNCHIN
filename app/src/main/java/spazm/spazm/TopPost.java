@@ -10,18 +10,20 @@ import java.util.Calendar;
 public class TopPost extends PostDetails {
     protected ArrayList<SubPost> comments;
     protected String title;
-    public TopPost()
-    {//here for subclass
-    }
+    private String label;//text
+    private Integer image;//what type (needs getter and setter)
+
     //shouldnt be called maybe get rid of \/
-    public TopPost(String title_i, Type type_i, String userName)
+    public TopPost(Integer image_i, String title_i, String userName)
     {
         Calendar time = Calendar.getInstance();//get current time
         whoHasLiked = new ArrayList<>();
         title = title_i;
-        type = type_i;
+        //type = type_i;
         poster = userName;
         comments = new ArrayList<SubPost>();
+        image = image_i;
+        label="";
     }
     protected String getTitle()
     {
@@ -49,5 +51,16 @@ public class TopPost extends PostDetails {
     protected void addComment(SubPost newComment)
     {
         comments.add(newComment);
+    }
+    protected Integer getImage(){
+        return image;
+    }
+    protected void setLabel(String label_i)
+    {
+        label=label_i;
+    }
+    protected String getLabel()
+    {
+        return label;
     }
 }

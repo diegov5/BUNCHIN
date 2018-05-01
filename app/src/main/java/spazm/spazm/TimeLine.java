@@ -17,13 +17,31 @@ public class TimeLine
     {
         return timeLine.get(index);
     }
-    protected void addPost(Picture newPost)//not sure if this should just add to end or if time should be checked
+    protected void addPost(TopPost newPost)//not sure if this should just add to end or if time should be checked
     {
         timeLine.add(newPost);
     }
-    protected void addPost(Rant newPost)//not sure if this should just add to end or if time should be checked
+    protected void example()
     {
-        timeLine.add(newPost);
+        TopPost t0 = new TopPost(R.drawable.sample_0,"Doggy","DogLover69");
+        TopPost t1 = new TopPost(R.drawable.sample_1,"Dog-o","Ksig");
+        TopPost t2 = new TopPost(R.drawable.sample_2,"My Dog","Bet");
+        TopPost t3 = new TopPost(R.drawable.sample_3,"Most Liked Dog","Chance");
+        TopPost t4 = new TopPost(R.drawable.sample_4,"Dog","BhadBhabie");
+        TopPost t5 = new TopPost(R.drawable.sample_5,"a Pup","69");
+        TopPost t6 = new TopPost(R.drawable.sample_6,"Puppy","PupLover69");
+        TopPost t7 = new TopPost(R.drawable.sample_7,"Too Cute","MeLoveDog");
+        t3.addLike("BhadBhabie");
+        t3.addLike("MeLoveDog");
+        t1.addLike("BhadBhabie");
+        this.addPost(t0);
+        this.addPost(t1);
+        this.addPost(t2);
+        this.addPost(t3);
+        this.addPost(t4);
+        this.addPost(t5);
+        this.addPost(t6);
+        this.addPost(t7);
     }
     protected void removePost(int index)
     {

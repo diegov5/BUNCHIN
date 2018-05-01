@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import static spazm.spazm.MainActivity.timeLine;
+
 public class TimelineAdapter extends BaseAdapter {
     private Context mContext;
 
@@ -14,7 +16,7 @@ public class TimelineAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return mThumbIds.length;
+        return timeLine.size();
     }
 
     public Object getItem(int position) {
@@ -38,7 +40,7 @@ public class TimelineAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
+        imageView.setImageResource(timeLine.getPost(position).getImage());
         return imageView;
     }
 

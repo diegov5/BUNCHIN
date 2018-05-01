@@ -31,6 +31,8 @@ import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
+    protected static TimeLine timeLine;
+    protected static HotPosts hotPosts;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
      * three primary sections of the app. We use a {@link android.support.v4.app.FragmentPagerAdapter}
@@ -46,6 +48,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     ViewPager mViewPager;
 
     public void onCreate(Bundle savedInstanceState) {
+        timeLine = new TimeLine();
+        hotPosts = new HotPosts();
+        timeLine.example();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

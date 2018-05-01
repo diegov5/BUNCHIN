@@ -2,29 +2,30 @@ package spazm.spazm;
 
 import java.util.ArrayList;
 
+import static spazm.spazm.MainActivity.timeLine;
+
 /**
  * Created by McLovin on 4/15/2018.
  */
 
 public class HotPosts {
     protected ArrayList<TopPost> hot;
-    protected ArrayList<TopPost> allPosts;// maybe replace this with timeline
+    //protected ArrayList<TopPost> allPosts;// maybe replace this with timeline
+    //protected TimeLine tL;
 
-    public HotPosts(ArrayList<TopPost> allPosts_i)//assuming arraylist contains all viewable posts
+    public HotPosts()//assuming arraylist contains all viewable posts
     {
-        allPosts = allPosts_i;
-        if(allPosts.size()>=8)
+        if(timeLine.size()>=8)
             hot.ensureCapacity(8);
         else
-            hot.ensureCapacity(allPosts.size());
+            hot.ensureCapacity(timeLine.size());
     }
-    protected void updateHotPosts(ArrayList<TopPost> allPosts_i) {
-        allPosts = allPosts_i;
+    protected void updateHotPosts() {
         hot.clear();
-        if(allPosts.size()>=8)
+        if(timeLine.size()>=8)
             hot.ensureCapacity(8);
         else
-            hot.ensureCapacity(allPosts.size());
+            hot.ensureCapacity(timeLine.size());
         findHotPosts();
     }
     protected TopPost getPost(int index)
@@ -33,7 +34,7 @@ public class HotPosts {
     }
     protected void findHotPosts()//i hate how i coded this but finds top 8 scores
     {
-        ArrayList<TopPost> allPostCopy = (ArrayList<TopPost>)(allPosts.clone());
+        ArrayList<TopPost> allPostCopy = (ArrayList<TopPost>)(timeLine.timeLine.clone());
         int maxScore = 0;
         int maxIndex = 0;
         int currentScore;

@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import static spazm.spazm.MainActivity.hotPosts;
+
 /**
  * Created by Diego Valdez Local on 4/12/2018.
  */
@@ -18,7 +20,7 @@ public class HotPostsAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return mThumbIds.length;
+        return hotPosts.hot.size();
     }
 
     public Object getItem(int position) {
@@ -42,7 +44,9 @@ public class HotPostsAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(mThumbIds[position]);
+        //imageView.setImageResource(mThumbIds[position]);
+        hotPosts.updateHotPosts();
+        imageView.setImageResource(hotPosts.hot.get(position).getImage());
         return imageView;
     }
 

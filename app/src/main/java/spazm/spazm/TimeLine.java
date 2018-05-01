@@ -11,7 +11,7 @@ public class TimeLine
     protected ArrayList<TopPost> timeLine;
     public TimeLine()
     {
-        timeLine = new ArrayList<>();
+        timeLine = new ArrayList<TopPost>();
     }
     protected TopPost getPost(int index)
     {

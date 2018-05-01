@@ -1,5 +1,6 @@
 package spazm.spazm;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -13,11 +14,11 @@ public class SubPost extends PostDetails {
     public SubPost()
     {//for subclass's
     }
-    public SubPost (Type type_i, String userName,PostDetails topPost_i)
+    public SubPost (Type type_i, String userName, PostDetails topPost_i)
     {
         Calendar time = Calendar.getInstance();//get current time
         whoHasLiked = new ArrayList<>();
-        type = type_i;
+        Type type = type_i;
         poster = userName;
         topPost = topPost_i;
     }

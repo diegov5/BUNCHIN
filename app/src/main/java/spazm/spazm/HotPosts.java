@@ -15,9 +15,11 @@ public class HotPosts {
 
     public HotPosts()//assuming arraylist contains all viewable posts
     {
-        if(timeLine.size()>=8)
+        hot = new ArrayList<TopPost>();
+        if(timeLine.size()>=8) {
             hot.ensureCapacity(8);
-        else
+        }
+        else if(timeLine.size()!= 0)
             hot.ensureCapacity(timeLine.size());
     }
     protected void updateHotPosts() {

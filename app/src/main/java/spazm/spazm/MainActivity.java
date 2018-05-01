@@ -49,8 +49,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     public void onCreate(Bundle savedInstanceState) {
         timeLine = new TimeLine();
-        hotPosts = new HotPosts();
         timeLine.example();
+        hotPosts = new HotPosts();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

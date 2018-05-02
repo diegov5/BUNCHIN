@@ -16,7 +16,7 @@ public class TopPost extends PostDetails {
     //shouldnt be called maybe get rid of \/
     public TopPost(Integer image_i, String title_i, String userName)
     {
-        Calendar time = Calendar.getInstance();//get current time
+        time = Calendar.getInstance();//get current time
         whoHasLiked = new ArrayList<>();
         title = title_i;
         //type = type_i;

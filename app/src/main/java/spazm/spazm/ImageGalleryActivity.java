@@ -37,13 +37,7 @@ public class ImageGalleryActivity extends AppCompatActivity implements EasyPermi
         Button cameraButton =  (Button)findViewById(R.id.camera_button);
         if(cameraButton != null)
         {
-            cameraButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(intent, TAKE_PICTURE);
-                }
-            });
+            cameraButton.setOnClickListener(goToGallery);
         }
 
     }
@@ -99,6 +93,15 @@ public class ImageGalleryActivity extends AppCompatActivity implements EasyPermi
             return cursor.getString(idx);
         }
     }
+
+    protected View.OnClickListener goToGallery = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, TAKE_PICTURE);
+        }
+
+    };
 }
 /*
 import android.Manifest;

@@ -11,7 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 /**
- * A fragment that launches other parts of the demo application.
+ * A fragment that launches other parts of the demo application. Ignore this comment
  */
 public class HomeFragment extends Fragment {
 

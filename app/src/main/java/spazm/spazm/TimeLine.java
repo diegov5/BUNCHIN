@@ -43,7 +43,7 @@ public class TimeLine
         this.addPost(t6);
         this.addPost(t7);
     }
-    protected void removePost(int index)
+    protected void removePost(int index)//doesnt remove from hot posts
     {
         timeLine.remove(index);
     }

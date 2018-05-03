@@ -74,7 +74,7 @@ public class ViewPostActivity extends AppCompatActivity {
                         currentIndex--;
                     }
                 } else if (currentIndex == 0) {
-                    currentIndex = hotPosts.hot.size();
+                    currentIndex = hotPosts.hot.size()-1;
                     inHotPost = true;
                 }else
                     currentIndex--;

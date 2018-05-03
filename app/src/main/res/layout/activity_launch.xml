@@ -32,21 +32,21 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="289dp"
-        android:layout_height="200dp"
+        android:layout_width="321dp"
+        android:layout_height="236dp"
         android:layout_gravity="center"
         android:layout_weight="0.05"
         android:adjustViewBounds="false"
         android:background="@null"
         android:cropToPadding="false"
-        android:padding="10dp"
-        android:paddingBottom="10dp"
+        android:padding="3dp"
+        android:paddingBottom="3dp"
         android:paddingEnd="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
         android:paddingStart="10dp"
-        android:paddingTop="10dp"
-        app:srcCompat="@drawable/logo_white_trans" />
+        android:paddingTop="3dp"
+        app:srcCompat="@drawable/bunchin_logo" />
 
     <Button
         android:id="@+id/LOGIN"
@@ -88,11 +88,6 @@
         android:text="SIGN UP"
         android:textSize="30sp" />
 
-    <!--<Button
-        android:id="@+id/TEST"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Diego's testing page" />-->
 
 
 </LinearLayout>

@@ -71,7 +71,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/indie_flower"
-        android:text="Number of Likes"
+        android:text="Number of Likes:"
         android:textColor="@android:color/white"
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +86,7 @@
         android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="number"
+        android:text="#"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
@@ -98,6 +99,7 @@
         android:layout_marginTop="52dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="Type Here!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -111,7 +113,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:fontFamily="@font/indie_flower"
-        android:text="Label"
+        android:text="Label:"
         android:textColor="@android:color/white"
         android:textSize="24dp"
         app:layout_constraintEnd_toStartOf="@+id/editText3"

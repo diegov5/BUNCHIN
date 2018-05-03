@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BUNCHIN.iml" filepath="$PROJECT_DIR$/BUNCHIN.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/BUNCHIN.iml" filepath="$PROJECT_DIR$/.idea/BUNCHIN.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spazm.iml" filepath="$PROJECT_DIR$/Spazm.iml" />
       <module fileurl="file://C:/../../McLovin/Desktop/project/BUNCHIN/Spazm.iml" filepath="C:/../../McLovin/Desktop/project/BUNCHIN/Spazm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

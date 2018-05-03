@@ -47,7 +47,7 @@ public class HotPosts {
         int minScore = -1;
         int currentScore;
         for(int i = 0; i< size;i++) {
-            allPostCopy.add(timeLine.timeLine.get(i));//makes arraylist coy of timeline
+            allPostCopy.add(timeLine.timeLine.get(i));//makes arraylist copy of timeline
             allScores.add(allPostCopy.get(i).getScore());
         }
         for(int i = 0; i < 8; i++){

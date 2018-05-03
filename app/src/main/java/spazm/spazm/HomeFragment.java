@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import static spazm.spazm.MainActivity.currentIndex;
+import static spazm.spazm.MainActivity.inComments;
 import static spazm.spazm.MainActivity.inHotPost;
 
 /**
@@ -50,6 +51,7 @@ public class HomeFragment extends Fragment {
                                     int position, long id) {
                 currentIndex = position;
                 inHotPost = false;
+                inComments = false;
                 Intent intent = new Intent(getActivity(), ViewPostActivity.class);
                 startActivity(intent);
             }

@@ -35,6 +35,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     protected static HotPosts hotPosts;
     protected static int currentIndex;
     protected static boolean inHotPost;
+    protected static boolean inComments;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
      * three primary sections of the app. We use a {@link android.support.v4.app.FragmentPagerAdapter}

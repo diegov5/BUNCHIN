@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     private final static int SELECT_PHOTO = 12345;
     EditText username;
     EditText password;
-    EditText bio ;
+    //EditText bio ;
     Button signup ;
     Button uploadPhoto;
 
@@ -42,7 +42,6 @@ public class SignupActivity extends AppCompatActivity {
 
         username = findViewById(R.id.NEW_USERNAME);
         password = findViewById(R.id.NEW_PASSWORD);
-        bio = findViewById(R.id.NEW_BIOGRAPHY);
         signup = findViewById(R.id.SIGNUP);
         //uploadPhoto = findViewById(R.id.UPLOADPIC);
 
@@ -61,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         public void onClick(View v) {
             if(isValidData())  // When the user clicks the signup button, make sure they have valid input
             {
-                User newUser = new User(username,password,bio);
+                User newUser = new User(username,password);
                 User.userList.add(newUser);
                 Intent Intent = new Intent(v.getContext(), MainActivity.class);
                 v.getContext().startActivity(Intent);
@@ -119,8 +118,8 @@ public class SignupActivity extends AppCompatActivity {
 
         if(passwordGood && usernameGood)
         {
-            if(isEmpty(bio))
-                makeToast("You can always change your bio later!");
+           // if(isEmpty(bio))
+           //     makeToast("You can always change your bio later!");
             return true;
         }
 

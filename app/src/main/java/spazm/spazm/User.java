@@ -15,12 +15,12 @@ public class User
     private String currentPassword;
     private String currentBiography;
 
-    User(EditText username, EditText password, EditText biography)
+    User(EditText username, EditText password)
     {
         currentUsername = username.getText().toString();
         System.out.println("USERNAME IS!!!!!!!!!!!!!!!!!!!!!!!!!! " + currentUsername);
         currentPassword = password.getText().toString();
-        currentBiography = biography.getText().toString();
+    //    currentBiography = biography.getText().toString();
         System.out.println("The size is!!!!!!!!!!!!!!!!!!!!!!!!!! " + userList.size());
     }
 
@@ -34,10 +34,10 @@ public class User
         return currentPassword;
     }
 
-    private void setBiography(String newBio)
-    {
-        currentBiography = newBio;
-    }
+    //private void setBiography(String newBio)
+    //{
+    //    currentBiography = newBio;
+    //}
 
     private boolean isEmpty()
     {

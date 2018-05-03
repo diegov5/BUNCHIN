@@ -10,6 +10,8 @@ import android.widget.Button;
 
 public class NewPostFragment extends Fragment {
 
+    public static final int PICK_IMAGE = 1;
+
     public NewPostFragment() {}
 
     @Override
@@ -24,8 +26,28 @@ public class NewPostFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(view.getContext(), CameraActivity.class);
-                view.getContext().startActivity(Intent);}
+                view.getContext().startActivity(Intent);
+            }
+        });
+
+        Button choosePic = (Button) rootView.findViewById(R.id.choosePic);
+        choosePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+            }
         });
         return rootView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == PICK_IMAGE) {
+            //TODO: action
+        }
     }
 }

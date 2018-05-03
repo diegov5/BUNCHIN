@@ -19,7 +19,9 @@ public class LaunchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent Intent = new Intent(view.getContext(), MainActivity.class);
-                view.getContext().startActivity(Intent);}
+                view.getContext().startActivity(Intent);
+                finish();
+            }
         });
 
         Button signup = (Button) findViewById(R.id.SIGNUP);

@@ -114,8 +114,6 @@ public class SignupActivity extends AppCompatActivity {
         else
             passwordGood = true;
 
-
-
         if(passwordGood && usernameGood)
         {
            // if(isEmpty(bio))

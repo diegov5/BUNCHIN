@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +19,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
+
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -58,9 +62,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
+                Intent i = new Intent(
+                        Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
 
-
+/*
                 Intent intent = new Intent(Intent.ACTION_PICK, android.provider.
                         MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 intent.setType("image/*");
@@ -71,7 +79,7 @@ public class ProfileFragment extends Fragment {
                 intent.putExtra("aspectX", 1);
                 intent.putExtra("aspectY", 1);
                 intent.putExtra("return-data", true);
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, 1);*/
 
             }
 
@@ -93,7 +101,7 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        /*super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
@@ -107,11 +115,55 @@ public class ProfileFragment extends Fragment {
             imageView.getLayoutParams().width = 600;
             //imageView.setLayoutParams(new ViewGroup.LayoutParams(220,220));
             //imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath)); */
+            if (resultCode == RESULT_OK && requestCode == 1 && null != data) {
+                decodeUri(data.getData());
+            }
+        }
+    //}
 
+    public void decodeUri(Uri uri) {
+        ParcelFileDescriptor parcelFD = null;
+        try {
+            parcelFD = getContext().getContentResolver().openFileDescriptor(uri, "r");
+            FileDescriptor imageSource = parcelFD.getFileDescriptor();
 
+            // Decode image size
+            BitmapFactory.Options o = new BitmapFactory.Options();
+            o.inJustDecodeBounds = true;
+            BitmapFactory.decodeFileDescriptor(imageSource, null, o);
 
+            // the new size we want to scale to
+            final int REQUIRED_SIZE = 1024;
 
+            // Find the correct scale value. It should be the power of 2.
+            int width_tmp = o.outWidth, height_tmp = o.outHeight;
+            int scale = 1;
+            while (true) {
+                if (width_tmp < REQUIRED_SIZE && height_tmp < REQUIRED_SIZE) {
+                    break;
+                }
+                width_tmp /= 2;
+                height_tmp /= 2;
+                scale *= 2;
+            }
+
+            // decode with inSampleSize
+            BitmapFactory.Options o2 = new BitmapFactory.Options();
+            o2.inSampleSize = scale;
+            Bitmap bitmap = BitmapFactory.decodeFileDescriptor(imageSource, null, o2);
+
+            newPicture.setImageBitmap(bitmap);
+
+        } catch (FileNotFoundException e) {
+            // handle errors
+        } finally {
+            if (parcelFD != null)
+                try {
+                    parcelFD.close();
+                } catch (IOException e) {
+                    // ignored
+                }
         }
     }
 }

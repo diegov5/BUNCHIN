@@ -16,11 +16,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="88dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Enter User Name"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,11 +31,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="textVisiblePassword"
         android:hint="Enter Password"
+        android:inputType="textVisiblePassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NEW_USERNAME" />
 
@@ -44,11 +46,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="Enter Biography"
+        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NEW_PASSWORD" />
 
@@ -57,39 +60,18 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="160dp"
         android:layout_height="88dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/background_light"
         android:fontFamily="@font/indie_flower"
         android:text="SIGN UP"
         android:textColor="@android:color/black"
         android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NEW_BIOGRAPHY" />
-
-    <Button
-        android:id="@+id/UPLOADPIC"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="160dp"
-        android:layout_height="88dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
-        android:background="@android:color/background_light"
-        android:fontFamily="@font/indie_flower"
-        android:text="Upload profile pic"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NEW_BIOGRAPHY" />
-
-    <ImageView
-        android:id="@+id/PROFILEPIC"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"></ImageView>
 
 </android.support.constraint.ConstraintLayout>

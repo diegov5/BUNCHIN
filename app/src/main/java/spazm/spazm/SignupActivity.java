@@ -44,12 +44,12 @@ public class SignupActivity extends AppCompatActivity {
         password = findViewById(R.id.NEW_PASSWORD);
         bio = findViewById(R.id.NEW_BIOGRAPHY);
         signup = findViewById(R.id.SIGNUP);
-        uploadPhoto = findViewById(R.id.UPLOADPIC);
+        //uploadPhoto = findViewById(R.id.UPLOADPIC);
 
 
 
 
-        uploadPhoto.setOnClickListener(pickPhoto);
+       //uploadPhoto.setOnClickListener(pickPhoto);
         signup.setOnClickListener(saveButtonListener);
 
 

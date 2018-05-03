@@ -15,14 +15,22 @@ public class LaunchActivity extends AppCompatActivity {
 
         // Have login button send you straight to the Home activity
         Button login = (Button) findViewById(R.id.LOGIN);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Intent = new Intent(view.getContext(), MainActivity.class);
-                view.getContext().startActivity(Intent);
-                finish();
-            }
-        });
+        if(User.userList.size() > 0)
+        {
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent Intent = new Intent(view.getContext(), MainActivity.class);
+                    view.getContext().startActivity(Intent);
+                    finish();
+                }
+            });
+        }
+        else
+        {
+            login.setError("You must create an account first");
+        }
+
 
         Button signup = (Button) findViewById(R.id.SIGNUP);
         signup.setOnClickListener(new View.OnClickListener() {

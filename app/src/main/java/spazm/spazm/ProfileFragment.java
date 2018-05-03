@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,9 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.view.ViewGroup.LayoutParams;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class ProfileFragment extends Fragment {
     public ProfileFragment() {}
 
 
-    Button changeProfile;
+    User currentUser;
     public ImageView newPicture;
     private int PICK_IMAGE_REQUEST = 1;
     private static int RESULT_LOAD_IMAGE = 1;
@@ -39,9 +41,18 @@ public class ProfileFragment extends Fragment {
         //getActivity().setTitle("Profile");
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
+            User currentUser = User.userList.get(User.userList.size()-1);
+            String username = currentUser.getUsername();
+
+
+
+
 
         Button changeProfile = (Button) rootView.findViewById(R.id.CHANGE_PIC);
+        Button makeNewUser   = (Button) rootView.findViewById(R.id.MAKE_USERS);
         newPicture = (ImageView) rootView.findViewById(R.id.PROFILE_PIC);
+        TextView name = rootView.findViewById(R.id.name);
+        name.setText("Welcome " + currentUser.getUsername());
         changeProfile.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -66,6 +77,17 @@ public class ProfileFragment extends Fragment {
 
         });
 
+        makeNewUser.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent Intent = new Intent(v.getContext(), SignupActivity.class);
+                v.getContext().startActivity(Intent);
+            }
+
+        });
+
         return rootView;
     }
 
@@ -81,7 +103,15 @@ public class ProfileFragment extends Fragment {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
             ImageView imageView = (ImageView) getView().findViewById(R.id.PROFILE_PIC);
+            imageView.getLayoutParams().height = 600;
+            imageView.getLayoutParams().width = 600;
+            //imageView.setLayoutParams(new ViewGroup.LayoutParams(220,220));
+            //imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
+
+
+
         }
     }
 }

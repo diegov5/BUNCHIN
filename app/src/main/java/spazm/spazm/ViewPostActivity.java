@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +21,9 @@ public class ViewPostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+    }
+    protected void onStart() {
+        super.onStart();
         if (inHotPost)
             current = hotPosts.hot.get(currentIndex);
         else
@@ -55,12 +58,65 @@ public class ViewPostActivity extends AppCompatActivity {
                     currentIndex++;
                 else
                     return;
-
-                Intent intent = new Intent(view.getContext(), ViewPostActivity.class);
+                Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+        Button lastPic = findViewById(R.id.lastPic);
+        lastPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (inHotPost == true) {
+                    if (currentIndex == 0)//if still in hot post
+                        return;
+                    else{
+                        currentIndex--;
+                    }
+                } else if (currentIndex == 0) {
+                    currentIndex = hotPosts.hot.size()-1;
+                    inHotPost = true;
+                }else
+                    currentIndex--;
+                Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        ImageButton like = findViewById(R.id.Like);
+        like.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                current.addLike("default");
+            }
+        });
+
+        Button toProfile = findViewById(R.id.toProfile);
+        toProfile.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                //goto profile
+                finish();
+            }
+        });
+
+        Button toComment = findViewById(R.id.toComment);
+        toComment.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(current.comments.size()>0){
+
+                    finish();
+                } else
+                    return;
+
             }
         });
     }
-    /*@Override
-    protected void onDestroy(Bundle savedInstanceState) {*/
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
 }

@@ -32,20 +32,20 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="72dp"
         android:background="@android:color/white"
         android:fontFamily="@font/indie_flower"
         android:text="Take Picture"
         android:textColor="@android:color/holo_purple"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintEnd_toStartOf="@+id/choosePic"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/choosePic"
         android:layout_width="143dp"
         android:layout_height="52dp"
         android:layout_marginEnd="16dp"
@@ -60,7 +60,7 @@
         android:textSize="17dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/takePic"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <TextView
@@ -83,7 +83,7 @@
         android:layout_height="47dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"

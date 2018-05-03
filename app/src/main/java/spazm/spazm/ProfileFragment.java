@@ -15,7 +15,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         getActivity().setTitle("Profile");
-        View rootView = inflater.inflate(R.layout.fragment_activity, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         return rootView;
     }

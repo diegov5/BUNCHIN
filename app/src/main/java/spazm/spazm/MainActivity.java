@@ -125,6 +125,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
                 case 1:
                     return new ProfileFragment();
+
+                case 2:
+                    return new NewPostFragment();
                 default:
                     // The other sections of the app are dummy placeholders.
                     Fragment fragment = new DummySectionFragment();

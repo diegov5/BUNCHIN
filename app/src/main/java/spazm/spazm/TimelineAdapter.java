@@ -16,7 +16,7 @@ public class TimelineAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return timeLine.size();
+        return timeLine.size()*2;
     }
 
     public Object getItem(int position) {
@@ -29,19 +29,36 @@ public class TimelineAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
-        if (convertView == null) {
-            // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(220, 220));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            //imageView.setPadding(2, 2, 2, 2);
-        } else {
-            imageView = (ImageView) convertView;
-        }
+        if(position%2 == 0)
+        {
+            ImageView imageView;
+            if (convertView == null) {
+                // if it's not recycled, initialize some attributes
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(220, 220));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                //imageView.setPadding(2, 2, 2, 2);
+            } else {
+                imageView = (ImageView) convertView;
+            }
 
-        imageView.setImageResource(timeLine.getPost(position).getImage());
-        return imageView;
+            imageView.setImageResource(timeLine.getPost(position/2).getImage());
+            return imageView;
+        } else{
+            ImageView imageView;
+            if (convertView == null) {
+                // if it's not recycled, initialize some attributes
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(220, 220));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                //imageView.setPadding(2, 2, 2, 2);
+            } else {
+                imageView = (ImageView) convertView;
+            }
+
+            imageView.setImageResource(timeLine.getPost(position/2).getImage());
+            return imageView;
+        }
     }
 
     // references to our images in the gridView

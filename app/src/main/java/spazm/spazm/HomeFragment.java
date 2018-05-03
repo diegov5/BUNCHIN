@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
         timelineView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                currentIndex = position;
+                currentIndex = position/2;
                 inHotPost = false;
                 inComments = false;
                 Intent intent = new Intent(getActivity(), ViewPostActivity.class);

@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import static spazm.spazm.MainActivity.currentIndex;
+import static spazm.spazm.MainActivity.inHotPost;
+
 /**
  * A fragment that launches other parts of the demo application. Ignore this comment
  */
@@ -31,6 +34,8 @@ public class HomeFragment extends Fragment {
         hotView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+                currentIndex = position;
+                inHotPost = true;
                 Intent intent = new Intent(getActivity(), ViewPostActivity.class);
                 startActivity(intent);
             }
@@ -43,8 +48,10 @@ public class HomeFragment extends Fragment {
         timelineView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(getActivity(), "" + position,
-                        Toast.LENGTH_SHORT).show();
+                currentIndex = position;
+                inHotPost = false;
+                Intent intent = new Intent(getActivity(), ViewPostActivity.class);
+                startActivity(intent);
             }
         });
         return rootView;

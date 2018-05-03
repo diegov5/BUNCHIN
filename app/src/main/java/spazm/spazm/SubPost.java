@@ -15,13 +15,14 @@ public class SubPost extends PostDetails {
     public SubPost()
     {//for subclass's
     }
-    public SubPost (Integer image_i, String userName, PostDetails topPost_i)
+    public SubPost (Integer image_i, String userName)
     {
         Calendar time = Calendar.getInstance();//get current time
         whoHasLiked = new ArrayList<>();
         poster = userName;
-        topPost = topPost_i;
+        //topPost = topPost_i;
         image = image_i;
+        label ="";
     }
     protected Integer getImage(){
         return image;

@@ -34,6 +34,9 @@ public class TimeLine
         t3.addLike("BhadBhabie");
         t3.addLike("MeLoveDog");
         t1.addLike("BhadBhabie");
+        SubPost s0 = new SubPost(R.drawable.logo_circle,"Xx_poser_xX");
+        SubPost s1 = new SubPost(R.drawable.sample_6,"Sixty9");
+        SubPost s2 = new SubPost(R.drawable.sample_5,"60Nine");
         this.addPost(t0);
         this.addPost(t1);
         this.addPost(t2);
@@ -42,6 +45,9 @@ public class TimeLine
         this.addPost(t5);
         this.addPost(t6);
         this.addPost(t7);
+        timeLine.get(3).addComment(s0);
+        timeLine.get(3).addComment(s1);
+        timeLine.get(3).addComment(s2);
     }
     protected void removePost(int index)//doesnt remove from hot posts
     {

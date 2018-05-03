@@ -16,6 +16,7 @@ import static spazm.spazm.MainActivity.timeLine;
 
 public class ViewPostActivity extends AppCompatActivity {
     protected TopPost current;
+    protected SubPost currentComment;
     private static boolean inComments;
     private static int commentIndex;
     @Override
@@ -24,95 +25,172 @@ public class ViewPostActivity extends AppCompatActivity {
     }
     protected void onStart() {
         super.onStart();
+        setContentView(R.layout.activity_viewpostactivity);
         if (inHotPost)
             current = hotPosts.hot.get(currentIndex);
         else
             current = timeLine.timeLine.get(currentIndex);
+        if(!inComments) {
 
-        setContentView(R.layout.activity_viewpostactivity);
 
-        ImageView view = findViewById(R.id.imageDisplayed);//sets image
-        view.setImageResource(current.getImage());
+           ImageView view = findViewById(R.id.imageDisplayed);//sets image
+           view.setImageResource(current.getImage());
 
-        TextView lable = findViewById(R.id.Lable);//sets label
-        lable.setText(current.getLabel());
+           TextView lable = findViewById(R.id.Lable);//sets label
+           lable.setText(current.getLabel());
 
-        TextView title = findViewById(R.id.Title);//sets title
-        title.setText(current.getTitle());
+           TextView title = findViewById(R.id.Title);//sets title
+           title.setText(current.getTitle());
 
-        TextView username = findViewById(R.id.Username);//sets username
-        username.setText(current.poster);
+           TextView username = findViewById(R.id.Username);//sets username
+           username.setText(current.poster);
 
-        Button nextPic = findViewById(R.id.nextPic);
-        nextPic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (inHotPost == true) {
-                    if (currentIndex < hotPosts.hot.size() - 1)//if still in hot post
-                        currentIndex++;
-                    else {
-                        inHotPost = false;
-                        currentIndex = 0;
-                    }
-                } else if (currentIndex < timeLine.size() - 1)
-                    currentIndex++;
-                else
-                    return;
-                Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        Button lastPic = findViewById(R.id.lastPic);
-        lastPic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (inHotPost == true) {
-                    if (currentIndex == 0)//if still in hot post
-                        return;
-                    else{
-                        currentIndex--;
-                    }
-                } else if (currentIndex == 0) {
-                    currentIndex = hotPosts.hot.size()-1;
-                    inHotPost = true;
-                }else
-                    currentIndex--;
-                Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+           Button nextPic = findViewById(R.id.nextPic);
+           nextPic.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if (inHotPost == true) {
+                       if (currentIndex < hotPosts.hot.size() - 1)//if still in hot post
+                           currentIndex++;
+                       else {
+                           inHotPost = false;
+                           currentIndex = 0;
+                       }
+                   } else if (currentIndex < timeLine.size() - 1)
+                       currentIndex++;
+                   else
+                       return;
+                   Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
+                   startActivity(intent);
+                   finish();
+               }
+           });
+           Button lastPic = findViewById(R.id.lastPic);
+           lastPic.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if (inHotPost == true) {
+                       if (currentIndex == 0)//if still in hot post
+                           return;
+                       else {
+                           currentIndex--;
+                       }
+                   } else if (currentIndex == 0) {
+                       currentIndex = hotPosts.hot.size() - 1;
+                       inHotPost = true;
+                   } else
+                       currentIndex--;
+                   Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
+                   startActivity(intent);
+                   finish();
+               }
+           });
 
-        ImageButton like = findViewById(R.id.Like);
-        like.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                current.addLike("default");
-            }
-        });
+           ImageButton like = findViewById(R.id.Like);
+           like.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   current.addLike("default");
+               }
+           });
 
-        Button toProfile = findViewById(R.id.toProfile);
-        toProfile.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //goto profile
-                finish();
-            }
-        });
+           Button toProfile = findViewById(R.id.toProfile);
+           toProfile.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   //goto profile
+                   finish();
+               }
+           });
 
-        Button toComment = findViewById(R.id.toComment);
-        toComment.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                if(current.comments.size()>0){
+           Button toComment = findViewById(R.id.toComment);
+           toComment.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if (current.comments.size() > 0) {
+                       inComments = true;
+                       commentIndex = 0;
+                       Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
+                       startActivity(intent);
+                       finish();
+                   } else
+                       return;
 
-                    finish();
-                } else
-                    return;
+               }
+           });
+       }else{
+           currentComment = current.getComment(commentIndex);
 
-            }
-        });
+            ImageView view = findViewById(R.id.imageDisplayed);//sets image
+           view.setImageResource(current.getComment(commentIndex).getImage());
+
+           TextView lable = findViewById(R.id.Lable);//sets label
+           lable.setText(currentComment.getLabel());
+
+           TextView title = findViewById(R.id.Title);//sets title
+           title.setText(current.getTitle());
+
+           TextView username = findViewById(R.id.Username);//sets username
+           username.setText(currentComment.poster);
+
+           Button nextPic = findViewById(R.id.nextPic);
+           nextPic.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if(commentIndex==current.comments.size()-1){
+                       return;
+                   }
+                   else
+                       commentIndex++;
+                   Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
+                   startActivity(intent);
+                   finish();
+               }
+           });
+           Button lastPic = findViewById(R.id.lastPic);
+           lastPic.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if(commentIndex ==0)
+                       return;
+                   else
+                       commentIndex--;
+                   Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
+                   startActivity(intent);
+                   finish();
+               }
+           });
+           ImageButton like = findViewById(R.id.Like);
+           like.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   currentComment.addLike("default");
+               }
+           });
+
+           Button toProfile = findViewById(R.id.toProfile);
+           toProfile.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   //goto profile
+                   finish();
+               }
+           });
+
+
+
+       }
+    }
+    @Override
+    public void onBackPressed(){
+        if(inComments){
+            inComments = false;
+            Intent intent = new Intent(ViewPostActivity.this, ViewPostActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else
+            super.onBackPressed();
     }
     @Override
     protected void onDestroy() {

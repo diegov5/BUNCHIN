@@ -7,9 +7,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -152,8 +154,9 @@ public class ProfileFragment extends Fragment {
             BitmapFactory.Options o2 = new BitmapFactory.Options();
             o2.inSampleSize = scale;
             Bitmap bitmap = BitmapFactory.decodeFileDescriptor(imageSource, null, o2);
+            Bitmap croppedBitmap = bitmap.createScaledBitmap(bitmap, 550, 550, true);
+            newPicture.setImageBitmap(croppedBitmap);
 
-            newPicture.setImageBitmap(bitmap);
 
         } catch (FileNotFoundException e) {
             // handle errors

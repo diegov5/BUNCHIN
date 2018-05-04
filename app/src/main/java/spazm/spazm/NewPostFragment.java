@@ -120,8 +120,8 @@ public class NewPostFragment extends Fragment {
             BitmapFactory.Options o2 = new BitmapFactory.Options();
             o2.inSampleSize = scale;
             Bitmap bitmap = BitmapFactory.decodeFileDescriptor(imageSource, null, o2);
-
-            imageView.setImageBitmap(bitmap);
+            Bitmap croppedBitmap = bitmap.createScaledBitmap(bitmap, 550, 550, true);
+            imageView.setImageBitmap(croppedBitmap);
 
         } catch (FileNotFoundException e) {
             // handle errors

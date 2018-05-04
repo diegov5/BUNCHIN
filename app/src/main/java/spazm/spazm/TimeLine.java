@@ -32,8 +32,8 @@ public class TimeLine
         TopPost t6 = new TopPost(R.drawable.sample_6,"Puppy","PupLover69");
         TopPost t7 = new TopPost(R.drawable.sample_7,"Too Cute","MeLoveDog");
         TopPost t8 = new TopPost(R.drawable.img1,"Music Stands","McLovin");
-       // TopPost t9 = new TopPost(R.drawable.img2,"Sunset","McLovin");
-       /* TopPost t10 = new TopPost(R.drawable.img3,"Catan","MonopolySheep");
+        //TopPost t9 = new TopPost(R.drawable.img3,"Catan","MonopolySheep");
+       /* TopPost t10 = new TopPost(R.drawable.img2,"Sunset","McLovin");
         TopPost t11= new TopPost(R.drawable.img4,"Should i Get?","SuitGuy");
         TopPost t12 = new TopPost(R.drawable.img5,"Dirt Bike","HogRider");
         //TopPost t13 = new TopPost(R.drawable.img7,"GoZags","Corey");*/
@@ -41,12 +41,13 @@ public class TimeLine
         t3.addLike("BhadBhabie");
         t3.addLike("MeLoveDog");
         t1.addLike("BhadBhabie");
+        t0.setLabel("Testing");
         //t12.addLike("BhadBhabie");
         //t13.addLike("BhadBhabie");
         //t11.addLike("BhadBhabie");
         //t10.addLike("BhadBhabie");
-       // t9.addLike("BhadBhabie");
-        //t9.addLike("MeLoveDog");
+        //t9.addLike("BhadBhabie");
+       // t9.addLike("MeLoveDog");
         SubPost s0 = new SubPost(R.drawable.logo_circle,"Xx_poser_xX");
         SubPost s1 = new SubPost(R.drawable.sample_6,"Sixty9");
         SubPost s2 = new SubPost(R.drawable.sample_5,"60Nine");

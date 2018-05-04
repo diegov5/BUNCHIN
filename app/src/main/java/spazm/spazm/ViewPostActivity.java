@@ -40,7 +40,7 @@ public class ViewPostActivity extends AppCompatActivity {
            lable.setText(current.getLabel());
 
            TextView title = findViewById(R.id.Title);//sets title
-           title.setText(current.getTitle());
+           title.setText(" "+current.getTitle());
 
            TextView username = findViewById(R.id.Username);//sets username
            username.setText(current.poster);

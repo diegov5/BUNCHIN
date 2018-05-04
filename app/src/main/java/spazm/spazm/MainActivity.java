@@ -81,18 +81,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 // actionBar.setSelectedNavigationItem(position);
             }
         });
-
-       /* GridView gridView = findViewById(R.id.hotGridView);
-        gridView.setAdapter(new HotPostsAdapter(this));
-
-        // Give each picture in gridView button functionality
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
 
     @Override
@@ -134,6 +122,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     return new NewPostFragment();
                 default:
                     // The other sections of the app are dummy placeholders.
+                    // Used as a precautionary measure
                     Fragment fragment = new DummySectionFragment();
                     Bundle args = new Bundle();
                     args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);

@@ -1,37 +1,24 @@
 package spazm.spazm;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
-import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import static android.app.Activity.RESULT_OK;
-import static spazm.spazm.CameraActivity.REQUEST_IMAGE_CAPTURE;
+
 
 public class NewPostFragment extends Fragment {
 
@@ -42,6 +29,7 @@ public class NewPostFragment extends Fragment {
     private EditText numLikes;
     private String mCurrentPhotoPath;
 
+    // Necessary constructor for fragment
     public NewPostFragment() {}
 
     @Override
@@ -49,25 +37,17 @@ public class NewPostFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         getActivity().setTitle("New Post");
+        // Set Layout for fragment
         final View rootView = inflater.inflate(R.layout.fragment_newpost, container, false);
         imageView = rootView.findViewById(R.id.NEW_POST);
         Button post = rootView.findViewById(R.id.POST);
 
+        // Give buttons on the page functionality
         Button takePic = rootView.findViewById(R.id.takePic);
         takePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if (getActivity().checkSelfPermission(Manifest.permission.CAMERA)
-                                != PackageManager.PERMISSION_GRANTED) {
-                            requestPermissions(new String[]{Manifest.permission.CAMERA},
-                                    REQUEST_IMAGE_CAPTURE);
-                        }
-                    }*/
                     dispatchTakePictureIntent();
-                //}
             }
         });
 
@@ -98,24 +78,8 @@ public class NewPostFragment extends Fragment {
 
     }
 
+    // Handle camera permissions if user decides to take a picture
     private void dispatchTakePictureIntent() {
-        /*Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(getContext(),"com.example.android.fileprovider",photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(Intent.createChooser(takePictureIntent, "Take Picture"), REQUEST_IMAGE_CAPTURE);
-            }
-        }*/
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
@@ -123,8 +87,10 @@ public class NewPostFragment extends Fragment {
 
     }
 
+    // Handle information received from either choosing or taking a picture
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            // Check to see if user used the camera
             if (resultCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_IMAGE_CAPTURE) {
                 Bundle extras = data.getExtras();
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
@@ -146,13 +112,10 @@ public class NewPostFragment extends Fragment {
                     height_tmp /= 2;
                     scale *= 2;
                 }
-
-                // decode with inSampleSize
-
                 BitmapFactory.Options o2 = new BitmapFactory.Options();
                 o2.inSampleSize = scale;
                 Bitmap croppedBitmap = Bitmap.createScaledBitmap(imageBitmap, 550, 550, true);
-
+                // Make the picture the image view
                 imageView.setImageBitmap(croppedBitmap);
             }
             else{
@@ -160,22 +123,7 @@ public class NewPostFragment extends Fragment {
             }
     }
 
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
+    // Convert the image the user selected into a usable Bitmap
     public void decodeUri(Uri uri) {
         ParcelFileDescriptor parcelFD = null;
         try {

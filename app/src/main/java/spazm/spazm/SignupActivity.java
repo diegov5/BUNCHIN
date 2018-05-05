@@ -22,18 +22,25 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * Created by Diego Valdez Local on 4/24/2018.
+ * Created by David Ihle Local on 4/26/2018. The signup activity will implement the logic
+ * of creating a new user, making sure the user inputs a username and password, and adding them to
+ * the Arraylist of users
  */
 
 public class SignupActivity extends AppCompatActivity {
 
-    private final static int SELECT_PHOTO = 12345;
+
     EditText username;
     EditText password;
-    //EditText bio ;
     Button signup ;
-    Button uploadPhoto;
 
+
+    /**
+     * When the function is first called, you will be taken to the signup page
+     * and initialize the variables to be used in creating a User
+     * @param savedInstanceState
+     * @returns none
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,18 +49,20 @@ public class SignupActivity extends AppCompatActivity {
 
         username = findViewById(R.id.NEW_USERNAME);
         password = findViewById(R.id.NEW_PASSWORD);
+
+        // Give the signup button a job to do when pushed
         signup = findViewById(R.id.SIGNUP);
-        //uploadPhoto = findViewById(R.id.UPLOADPIC);
-
-
-
-
-       //uploadPhoto.setOnClickListener(pickPhoto);
         signup.setOnClickListener(saveButtonListener);
 
 
     }
 
+    /**
+     * Will make sure the input is valid and create a new User. It will then send the user
+     * to the homepage of the app
+     * @param savedInstanceState
+     * @returns none
+     */
     protected View.OnClickListener saveButtonListener = new View.OnClickListener(){
 
         @Override
@@ -62,8 +71,10 @@ public class SignupActivity extends AppCompatActivity {
             {
                 User newUser = new User(username,password);
                 User.userList.add(newUser);
+
                 Intent Intent = new Intent(v.getContext(), MainActivity.class);
                 v.getContext().startActivity(Intent);
+                User.printUserList();
             }
             else
             {
@@ -72,28 +83,23 @@ public class SignupActivity extends AppCompatActivity {
         }
     };
 
-    protected View.OnClickListener pickPhoto = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent Intent = new Intent(v.getContext(), ImageGalleryActivity.class);
-            v.getContext().startActivity(Intent);
-        }
-
-    };
-
-    boolean isEmail(EditText text)
-    {
-        CharSequence email = text.getText().toString();
-        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-    }
-
+    /**
+     * Will check if the textbox is empty
+     * @param text
+     * @returns True if the given text field is empty, false otherwise
+     */
     boolean isEmpty(EditText text)
     {
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }
 
-
+    /**
+     * Will make sure that the username and password fields aren't empty, and that nobody
+     * has the same username
+     * @param
+     * @returns true if the inputs meet all specifications, false otherwise
+     */
     protected boolean isValidData()
     {
         boolean usernameGood = false;
@@ -110,8 +116,7 @@ public class SignupActivity extends AppCompatActivity {
 
         if(passwordGood && usernameGood)
         {
-           // if(isEmpty(bio))
-           //     makeToast("You can always change your bio later!");
+
             return true;
         }
 
@@ -119,6 +124,11 @@ public class SignupActivity extends AppCompatActivity {
             return false;
     }
 
+    /**
+     * Will create a short popup message displayed on the current view
+     * @param message
+     * @returns none
+     */
     private void makeToast(String message)
     {
         Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);

@@ -8,12 +8,17 @@ import android.widget.Button;
 
 public class LaunchActivity extends AppCompatActivity {
 
+    /**
+     * When the user first starts up the app, this initializes the view and logic
+     * @param  savedInstanceState
+     * @returns none
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        // Have login button send you straight to the Home activity
+        // Have login button send you straight to the Home activity if you've logged in before
         Button login = (Button) findViewById(R.id.LOGIN);
         if(User.userList.size() > 0){
             login.setOnClickListener(new View.OnClickListener() {

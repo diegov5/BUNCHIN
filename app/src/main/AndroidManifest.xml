@@ -35,13 +35,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ImageGalleryActivity" android:label="Choose a pic">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <activity android:name=".CollectionDemoActivity" android:label="@string/demo_collection" />
 
         <meta-data

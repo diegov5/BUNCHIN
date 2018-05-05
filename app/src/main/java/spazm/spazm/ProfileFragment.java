@@ -37,6 +37,12 @@ public class ProfileFragment extends Fragment {
     private static int RESULT_LOAD_IMAGE = 1;
 
 
+    /**
+     * When the user comes to the profile page, will initialize fields and display their username
+     * in the middle of the page
+     * @param  inflater, container, savedInstanceState
+     * @returns View
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,7 +55,7 @@ public class ProfileFragment extends Fragment {
         TextView name = rootView.findViewById(R.id.name);
         name.setText("Welcome " + currentUser.getUsername());
 
-        // Give buttons functionality
+        // Give buttons functionality for changing their profile picture
         changeProfile.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -77,6 +83,12 @@ public class ProfileFragment extends Fragment {
         return rootView;
     }
 
+
+    /**
+     * When the user finally picks a pictures, it will decode the uri and create a bitmap
+     * @param  requestCode,  resultCode, Intent data
+     * @returns none
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == 1 && null != data) {
@@ -84,7 +96,11 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-
+    /**
+     * Will decode the uri passed in and set the profile picture to the chosen image
+     * @param uri
+     * @returns none
+     */
     public void decodeUri(Uri uri) {
         ParcelFileDescriptor parcelFD = null;
         try {
@@ -111,7 +127,8 @@ public class ProfileFragment extends Fragment {
                 scale *= 2;
             }
 
-            // decode with inSampleSize
+            // decode with inSampleSize, and resize to 550x550 pixels
+            // Then sets newPicture = to the new photo
             BitmapFactory.Options o2 = new BitmapFactory.Options();
             o2.inSampleSize = scale;
             Bitmap bitmap = BitmapFactory.decodeFileDescriptor(imageSource, null, o2);

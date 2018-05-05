@@ -1,3 +1,10 @@
+/**
+ * Created by David Ihle Local on 4/18/2018. Gives basic outline of the User class. Moving forward,
+ * this class will contain more information, like the profile picture, friends list, photos they are
+ * tagged in, the message feed etc.
+ */
+
+
 package spazm.spazm;
 
 import android.widget.EditText;
@@ -6,54 +13,50 @@ import java.util.ArrayList;
 
 public class User
 {
+    // The universal ArrayList of users. Will serve as the temporary database
     public static ArrayList<User> userList= new ArrayList<User>();
 
 
 
-    private ArrayList<User> friendList = new ArrayList<>();
+    //private ArrayList<User> friendList = new ArrayList<>();
     private String currentUsername;
     private String currentPassword;
-    private String currentBiography;
 
+    /**
+     * Will create a user with the input text values in the username/password text fields on
+     * SignupActivity
+     * @param username, password
+     * @returns none
+     */
     User(EditText username, EditText password)
     {
         currentUsername = username.getText().toString();
-        System.out.println("USERNAME IS!!!!!!!!!!!!!!!!!!!!!!!!!! " + currentUsername);
         currentPassword = password.getText().toString();
-    //    currentBiography = biography.getText().toString();
-        System.out.println("The size is!!!!!!!!!!!!!!!!!!!!!!!!!! " + userList.size());
-    }
 
+    }
+    /**
+     * Get the username of the currentUser
+     * @param
+     * @returns String, the username of current user
+     */
     public String getUsername()
     {
         return currentUsername;
     }
 
-    private String getCurrentPassword()
-    {
-        return currentPassword;
-    }
 
-    //private void setBiography(String newBio)
-    //{
-    //    currentBiography = newBio;
-    //}
 
-    private boolean isEmpty()
-    {
-        if(friendList.size() == 0)
-        {
-            return true;
-        }
-        else
-            return false;
-    }
 
+    /**
+     * Used in testing, will pring the entire list of registered users based on username
+     * @param
+     * @returns
+     */
     public static void printUserList()
     {
         for (int i = 0; i < userList.size() ; i++)
         {
-            System.out.println("The current user's username is + " + userList.get(i).getUsername() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" );
+            System.out.println("User #" + (i+1) + "'s username is + " + userList.get(i).getUsername() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" );
         }
     }
 }

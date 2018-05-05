@@ -95,8 +95,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     /**
-     * Will make sure that the username and password fields aren't empty, and that nobody
-     * has the same username
+     * Will make sure that the username and password fields aren't empty
      * @param
      * @returns true if the inputs meet all specifications, false otherwise
      */

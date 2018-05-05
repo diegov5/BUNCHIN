@@ -13,7 +13,11 @@ public class TopPost extends PostDetails {
     private String label;//text
     private Integer image;//what type (needs getter and setter)
 
-    //shouldnt be called maybe get rid of \/
+    /**
+     * Object Top post contains all the data for any one post ie image likes ect.
+     * @param
+     * @returns
+     */
     public TopPost(Integer image_i, String title_i, String userName)
     {
         time = Calendar.getInstance();//get current time
@@ -25,10 +29,20 @@ public class TopPost extends PostDetails {
         image = image_i;
         label="";
     }
+    /**
+     * returns title of post
+     * @param
+     * @returns title
+     */
     protected String getTitle()
     {
         return title;
     }
+    /**
+     * calculates and returns score of this post
+     * @param
+     * @returns score
+     */
     protected int getScore()
     {
         Calendar current= Calendar.getInstance();
@@ -36,29 +50,36 @@ public class TopPost extends PostDetails {
         timeDiff = timeDiff/3600000;//converts to hours
         return (getLikes()+(2*getAmountOfComments()/3))- (timeDiff*timeDiff)/8; //decays as time pass
     }
+    //sets title
     protected void changeTitle(String title_i)
     {
         title = title_i;
     }
+    //returns comment
     protected SubPost getComment(int index)
     {
         return comments.get(index);
     }
+    //returns number of comments on this post
     protected int getAmountOfComments()
     {
         return comments.size();
     }
+    //adds a new comment
     protected void addComment(SubPost newComment)
     {
         comments.add(newComment);
     }
+    //returns image
     protected Integer getImage(){
         return image;
     }
+    //set the label
     protected void setLabel(String label_i)
     {
         label=label_i;
     }
+    //returns the label
     protected String getLabel()
     {
         return label;

@@ -23,6 +23,11 @@ public class ViewPostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+    /**
+     * runs when this activity is started and sets up listeners for various conditions
+     * @param
+     * @returns
+     */
     protected void onStart() {
         super.onStart();
         setContentView(R.layout.activity_viewpostactivity);
@@ -45,7 +50,7 @@ public class ViewPostActivity extends AppCompatActivity {
            TextView username = findViewById(R.id.Username);//sets username
            username.setText(current.poster);
 
-           Button nextPic = findViewById(R.id.nextPic);
+           Button nextPic = findViewById(R.id.nextPic);//send to new activity with next picture
            nextPic.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
@@ -65,7 +70,7 @@ public class ViewPostActivity extends AppCompatActivity {
                    finish();
                }
            });
-           Button lastPic = findViewById(R.id.lastPic);
+           Button lastPic = findViewById(R.id.lastPic);//send to new activity with last picture
            lastPic.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
@@ -86,7 +91,7 @@ public class ViewPostActivity extends AppCompatActivity {
                }
            });
 
-           ImageButton like = findViewById(R.id.Like);
+           ImageButton like = findViewById(R.id.Like);//adds like to post
            like.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
@@ -94,7 +99,7 @@ public class ViewPostActivity extends AppCompatActivity {
                }
            });
 
-           Button toProfile = findViewById(R.id.toProfile);
+           Button toProfile = findViewById(R.id.toProfile);//might be used to send to profile later
            toProfile.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
@@ -103,7 +108,7 @@ public class ViewPostActivity extends AppCompatActivity {
                }
            });
 
-           Button toComment = findViewById(R.id.toComment);
+           Button toComment = findViewById(R.id.toComment);//send them to the comments to view of current post
            toComment.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
@@ -118,7 +123,7 @@ public class ViewPostActivity extends AppCompatActivity {
 
                }
            });
-       }else{
+       }else{//if it is a comment
            currentComment = current.getComment(commentIndex);
 
             ImageView view = findViewById(R.id.imageDisplayed);//sets image
@@ -146,7 +151,7 @@ public class ViewPostActivity extends AppCompatActivity {
                    startActivity(intent);
                    finish();
                }
-           });
+           });//goes to last comment
            Button lastPic = findViewById(R.id.lastPic);
            lastPic.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -159,7 +164,7 @@ public class ViewPostActivity extends AppCompatActivity {
                    startActivity(intent);
                    finish();
                }
-           });
+           });//adds like to comment
            ImageButton like = findViewById(R.id.Like);
            like.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -167,7 +172,7 @@ public class ViewPostActivity extends AppCompatActivity {
                    currentComment.addLike("default");
                }
            });
-
+            //unused as of now send user to home screen
            Button toProfile = findViewById(R.id.toProfile);
            toProfile.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -181,7 +186,7 @@ public class ViewPostActivity extends AppCompatActivity {
 
        }
     }
-    @Override
+    @Override//used to sent user back to top post when in a comment
     public void onBackPressed(){
         if(inComments){
             inComments = false;
@@ -192,7 +197,7 @@ public class ViewPostActivity extends AppCompatActivity {
         else
             super.onBackPressed();
     }
-    @Override
+    @Override//unused
     protected void onDestroy() {
         super.onDestroy();
 

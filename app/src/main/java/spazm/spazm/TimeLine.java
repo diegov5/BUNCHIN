@@ -8,19 +8,28 @@ import java.util.ArrayList;
 
 public class TimeLine
 {
+    //master arraylist of all posts
     protected ArrayList<TopPost> timeLine;
+    //creates a timeline to store all posts
     public TimeLine()
     {
         timeLine = new ArrayList<TopPost>();
     }
+    //returns post at index
     protected TopPost getPost(int index)
     {
         return timeLine.get(index);
     }
+    //adds post to timeline
     protected void addPost(TopPost newPost)//not sure if this should just add to end or if time should be checked
     {
         timeLine.add(newPost);
     }
+    /**
+     * fills timeline with a bunch of sample posts for simulation
+     * @param
+     * @returns
+     */
     protected void example()
     {
         TopPost t0 = new TopPost(R.drawable.sample_0,"Doggy","DogLover69");
@@ -76,10 +85,12 @@ public class TimeLine
         timeLine.get(6).addComment(s1);
         timeLine.get(6).addComment(s2);
     }
+    //removes a post at index
     protected void removePost(int index)//doesnt remove from hot posts
     {
         timeLine.remove(index);
     }
+    //returns size
     protected int size()
     {
         return timeLine.size();

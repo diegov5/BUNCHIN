@@ -12,9 +12,11 @@ public class SubPost extends PostDetails {
     private String label;//text label
     private Integer image;
 
-    public SubPost()
-    {//for subclass's
-    }
+    /**
+     * Object SubPost contains all the data for any one post ie image, likes, ect.
+     * @param
+     * @returns
+     */
     public SubPost (Integer image_i, String userName)
     {
         Calendar time = Calendar.getInstance();//get current time
@@ -24,13 +26,16 @@ public class SubPost extends PostDetails {
         image = image_i;
         label ="";
     }
+    //returns image
     protected Integer getImage(){
         return image;
     }
+    //set label
     protected void setLabel(String label_i)
     {
         label=label_i;
     }
+    //returns label
     protected String getLabel()
     {
         return label;

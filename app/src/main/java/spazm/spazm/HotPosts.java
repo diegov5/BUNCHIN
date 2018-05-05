@@ -13,6 +13,10 @@ public class HotPosts {
     //protected ArrayList<TopPost> allPosts;// maybe replace this with timeline
     //protected TimeLine tL;
 
+    /**
+     * Creates hotPosts object that finds and holds the hottest posts
+     * @param
+     */
     public HotPosts()//assuming arraylist contains all viewable posts
     {
         hot = new ArrayList<TopPost>();
@@ -22,6 +26,11 @@ public class HotPosts {
         else if(timeLine.size()!= 0)
             hot.ensureCapacity(timeLine.size());
     }
+    /**
+     * clears arraylist and finds all current hot posts
+     * @param
+     * @returns
+     */
     protected void updateHotPosts() {
         hot.clear();
         if(timeLine.size()>=8)
@@ -32,11 +41,21 @@ public class HotPosts {
             return;
         findHotPosts();
     }
+    /**
+     * returns one of the hotPost at an index
+     * @param
+     * @returns a TopPost
+     */
     protected TopPost getPost(int index)
     {
         return hot.get(index);
     }
-    protected void findHotPosts()//i hate how i coded this but finds top 8 scores
+    /**
+     * only called by updatePost, it finds the hottest posts and stores them in hot
+     * @param
+     * @returns
+     */
+    protected void findHotPosts()
     {
 
         int size = timeLine.timeLine.size();
@@ -55,37 +74,13 @@ public class HotPosts {
             maxIndex = findMax(allPostCopy);
             allPostCopy.remove(maxIndex);
         }
-
-
-        /*for (int k = 0; k < allPostCopy.size();k++) {
-            currentScore = allPostCopy.get(k).getScore();
-            if(currentScore >= minScore) {
-                if(hot.size() == 0)
-                    hot.add(allPostCopy.get(k));
-                else {
-                    for (int j = 0; j < Math.min(8,hot.size()); j++) {
-                        if (currentScore > hot.get(j).getScore()) {
-                            hot.add(j, allPostCopy.get(k));
-                            //allPostCopy.remove(k);
-                            j = 8;
-                            if (hot.size() > 8) {
-                                hot.remove(8);
-                                minScore = hot.get(7).getScore();
-                            }
-                        }
-                        if(hot.size() < 8 && j == hot.size() -1) {
-                            hot.add(allPostCopy.get(k));
-                            allPostCopy.remove(k);
-                        }
-                    }
-
-                }
-            }
-        }*/
-
         hot.trimToSize();
     }
-
+    /**
+     * returns max post, used in update
+     * @param
+     * @returns Int max post
+     */
     private int findMax(ArrayList<TopPost> myPosts)
     {
         int max = 0;
